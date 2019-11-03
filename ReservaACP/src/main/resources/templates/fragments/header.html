@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div th:fragment="header">
+		<!-- this is header -->
+		<nav class="navbar navbar-inverse">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" th:href="@{/race/bienvenido}">Administrador</a>
+				</div>
+				<div id="navbar" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a th:href="@{/pais/listar}">Paises</a></li>
+						<li class="active"><a th:href="@{/ciudad/listar}">Ciudades</a></li>
+						<li class="active"><a th:href="@{/producto/listar}">Producto</a></li>
+						<li class="active"><a th:href="@{/usuario/listar}">Usuarios</a></li>
+						<li class="active"><a th:href="@{/reserva/listar}">Reservas</a></li>
+						<li class="active"><a th:href="@{/pedido/listar}">Pedidos</a></li>
+						<li class="active"><a th:href="@{/factura/listar}">Factura</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+
+</body>
+</html>

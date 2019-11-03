@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Pedido</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" th:src="@{/js/pedido.js}"></script>
+
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
+		<form th:action="@{/pedido/registrar}" method="post"
+			th:object="${pedido}">
+				
+			<div class="form-group">
+				<label for="idProducto">ID:</label> 
+				<input type="text"	th:field="*{idPedido}"></input>
+              	<!-- Reserva -->
+				<div class="form-group">
+				<label for="reserva">ID Reserva:</label> 
+				<input type="text"	th:field="*{reserva.idReserva}"
+				class="form-control" id="reserva"></input>
+				<div class="alert alert-danger" 
+				th:if="${#fields.hasErrors('reserva')}"
+				th:errors="*{reserva}"></div>				
+				</div>
+				<!-- Producto -->
+				<div class="form-group">
+				<label for="producto" class="col-sm-2 col-form-label">Producto:</label> 
+					<select class="form-control" th:field="*{producto.idProducto}">
+						<option th:each="c: ${listaProductos}" th:value="${c.idProducto}" 
+						th:text="${c.nameProducto}" 
+						th:selected="(${c.idProducto} == *{producto.idProducto})"></option>
+					</select>
+				</div>				
+				<!-- Cantidad -->
+				<div class="form-group">
+				<label for="quantityPeso">Cantidad (Toneledas):</label> 
+				<input type="text"	th:field="*{quantityPeso}"
+				class="form-control" id="quantityPeso"></input>
+				<div class="alert alert-danger" 
+				th:if="${#fields.hasErrors('quantityPeso')}"
+				th:errors="*{quantityPeso}"></div>				
+				</div>
+			
+			</div>		
+			<button type ="submit" class="btn btn-primary">Aceptar</button>
+			<a href="/pedido/listar" class="btn btn-danger">Cancelar</a>
+		</form>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

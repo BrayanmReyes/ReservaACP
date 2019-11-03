@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Productos</title>
+<script type="text/javascript"
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+
+	<div class="container">
+		<form id="myform">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<a style="border-bottom-color: green" th:href="@{/producto/irRegistrar}"
+						id="add-row" type="button"
+						class="btn btn-primary btn-md left-block"> <span
+						class="glyphicon glyphicon-plus"></span> Producto
+					</a>
+					<a style="border-bottom-color: green" th:href="@{/producto/irBuscar}"
+						id="add-row" type="button"
+						class="btn btn-primary btn-md left-block"> <span
+						class="glyphicon glyphicon-search"></span> 
+					</a>
+					
+					<table class="table table-bordered table-hover table-striped"
+						id="tab_logic">
+						<thead>
+							<tr>
+								<th class="text-center">CODIGO</th>
+								<th class="text-center">NOMBRE</th>
+								<th class="text-center">FECHA REABASTECIMIENTO</th>
+								<th class="text-center">STOCK (TONELADAS)</th>
+								<th class="text-center">PRECIO (DOLARES)</th>
+								<th class="text-center">CANTIDAD RESERVADA (TONELADAS)</th>
+								<th class="text-center">OPERACIÓN</th>
+								<th class="text-center">OPERACIÓN</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="p: ${listaProductos}">
+								<td th:text="${p.idProducto}"></td>
+								<td th:text="${p.nameProducto}"></td>
+								<td th:text="${p.dayReabastecimiento}"></td>
+								<td th:text="${p.quantityStock}"></td>
+								<td th:text="${p.moneyPrecio}"></td>
+								<td th:text="${p.quantityReserva}"></td>
+								<td><a th:href="@{/producto/eliminar?id=}+${p.idProducto}">Eliminar</a></td>
+								<td><a th:href="@{'/producto/modificar/' + ${p.idProducto}}">Modificar</a></td>
+							</tr>
+						</tbody>
+
+					</table>
+
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

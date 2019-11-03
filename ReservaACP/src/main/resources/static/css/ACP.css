@@ -1,0 +1,426 @@
+.mediaViewInfo {
+	--web-view-name: Web 1366 – 1;
+	--web-view-id: Web_1366___1;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: Web_1366___1;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#Web_1366___1 {
+	position: absolute;
+	box-sizing: border-box;
+	background: #E5E5E5;
+	width: -webkit-fill-available;
+	height: 3840px;
+	background-color: rgba(255,255,255,1);
+	overflow: hidden;
+	--web-view-name: Web 1366 – 1;
+	--web-view-id: Web_1366___1;
+	--web-enable-deep-linking: true;
+}
+#Grupo_1 {
+	position: absolute;
+	width: 1364px;
+	height: 690px;
+	left: 0px;
+	top: 78px;
+	overflow: visible;
+}
+.acp1 {
+	position: absolute;
+	overflow: visible;
+	width: 1364px;
+	height: 690px;
+	left: 0px;
+	top: 0px;
+}
+.Rect_ngulo_3 {
+	position: absolute;
+	overflow: visible;
+	width: 1364px;
+	height: 165px;
+	left: 0px;
+	top: 0px;
+}
+.Imagen_1 {
+	position: absolute;
+	overflow: visible;
+	width: 165px;
+	height: 165px;
+	left: 464px;
+	top: 0px;
+}
+.Rect_ngulo_4 {
+	position: absolute;
+	overflow: visible;
+	width: 441px;
+	height: 49px;
+	left: 451px;
+	top: 165px;
+}
+.Rect_ngulo_5 {
+	position: absolute;
+	overflow: visible;
+	width: 251px;
+	height: 34px;
+	left: 543px;
+	top: 220px;
+}
+#EXPRESS_ACP {
+	position: absolute;
+	left: 629px;
+	top: 58px;
+	overflow: visible;
+	width: 246px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 38px;
+	color: rgba(0,174,123,1);
+}
+#Plataforma_web_para_los_client {
+	position: absolute;
+	left: 419px;
+	top: 195px;
+	overflow: visible;
+	width: 530px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 29px;
+	color: rgba(46,141,113,1);
+}
+.Trazado_22 {
+	overflow: visible;
+	position: absolute;
+	width: 523.244px;
+	height: 3px;
+	left: 707.946px;
+	top: 1879px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.ased {
+	position: absolute;
+	overflow: visible;
+	width: 794px;
+	height: 652px;
+	left: 572px;
+	top: 2304px;
+}
+.asdsddasd {
+	position: absolute;
+	overflow: visible;
+	width: 1366px;
+	height: 613px;
+	left: 0px;
+	top: 3148px;
+}
+#Descubre_una_nueva_experiencia {
+	position: absolute;
+	left: 340px;
+	top: 3365px;
+	overflow: hidden;
+	width: 688px;
+	height: 136px;
+	text-align: center;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 45px;
+	color: rgba(27,139,61,1);
+}
+#Small_Button {
+	position: absolute;
+	width: 222px;
+	height: 54px;
+	left: 572px;
+	top: 3501px;
+	overflow: visible;
+}
+.Rect_ngulo_150 {
+	position: absolute;
+	overflow: visible;
+	width: 222px;
+	height: 54px;
+	left: 0px;
+	top: 0px;
+}
+#INGRESAR {
+	position: absolute;
+	left: 58px;
+	top: 16px;
+	overflow: visible;
+	width: 107px;
+	white-space: nowrap;
+	line-height: 32px;
+	margin-top: -6px;
+	text-align: center;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgba(27,139,61,1);
+}
+.adssdadsds {
+	position: absolute;
+	overflow: visible;
+	width: 683px;
+	height: 706px;
+	left: 0px;
+	top: 1582px;
+}
+#Servicio_a_la_velocidad_de_la_ {
+	position: absolute;
+	left: 664px;
+	top: 1833px;
+	overflow: hidden;
+	width: 612px;
+	height: 42px;
+	line-height: 40px;
+	margin-top: -4px;
+	text-align: center;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 32px;
+	color: rgba(46,141,113,1);
+}
+#Con_la_plataforma_de_ACP_no_ti {
+	position: absolute;
+	left: 692px;
+	top: 1895px;
+	overflow: visible;
+	width: 557px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Cambria;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 32px;
+	color: rgba(37,19,17,1);
+}
+.calvo {
+	position: absolute;
+	overflow: visible;
+	width: 179px;
+	height: 180px;
+	left: 302px;
+	top: 1187px;
+}
+#_Los_productos_de_ACP_son_de_b {
+	position: absolute;
+	left: 226px;
+	top: 976px;
+	overflow: hidden;
+	width: 339px;
+	height: 203px;
+	text-align: left;
+	font-family: Georgia;
+	font-style: italic;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(46,141,113,1);
+}
+.Elipse_1 {
+	position: absolute;
+	overflow: visible;
+	width: 87px;
+	height: 84px;
+	left: 348px;
+	top: 866px;
+}
+.Trazado_24 {
+	overflow: visible;
+	position: absolute;
+	width: 140px;
+	height: 3px;
+	left: 156.5px;
+	top: 907.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.Trazado_25 {
+	overflow: visible;
+	position: absolute;
+	width: 140px;
+	height: 3px;
+	left: 485.5px;
+	top: 907.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Quote {
+	position: absolute;
+	width: 42px;
+	height: 37px;
+	left: 370px;
+	top: 889px;
+	overflow: visible;
+}
+.Trazado_19 {
+	overflow: visible;
+	position: absolute;
+	width: 42px;
+	height: 35.8px;
+	left: 0px;
+	top: 1px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.Rect_ngulo_1451 {
+	position: absolute;
+	overflow: visible;
+	width: 37px;
+	height: 37px;
+	left: 0px;
+	top: 0px;
+}
+#Gerson_Franco_Padilla_Ramos_Cl {
+	position: absolute;
+	left: 246px;
+	top: 1383px;
+	overflow: visible;
+	width: 291px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 22px;
+	color: rgba(46,141,113,1);
+}
+#_Me_impresiona_demasiado_la_ef {
+	position: absolute;
+	left: 834px;
+	top: 997px;
+	overflow: hidden;
+	width: 331px;
+	height: 161px;
+	text-align: center;
+	font-family: Georgia;
+	font-style: italic;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(46,141,113,1);
+}
+.Elipse_2 {
+	position: absolute;
+	overflow: visible;
+	width: 87px;
+	height: 84px;
+	left: 956px;
+	top: 866px;
+}
+.Trazado_26 {
+	overflow: visible;
+	position: absolute;
+	width: 140px;
+	height: 3px;
+	left: 764.5px;
+	top: 907.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.Trazado_27 {
+	overflow: visible;
+	position: absolute;
+	width: 140px;
+	height: 3px;
+	left: 1093.5px;
+	top: 907.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Quote_A0_Component_3 {
+	position: absolute;
+	width: 42px;
+	height: 37px;
+	left: 978px;
+	top: 889px;
+	overflow: visible;
+}
+.Trazado_19_A0_Path_7 {
+	overflow: visible;
+	position: absolute;
+	width: 42px;
+	height: 35.8px;
+	left: 0px;
+	top: 1px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.Rect_ngulo_1451_A0_Rectangle_16 {
+	position: absolute;
+	overflow: visible;
+	width: 37px;
+	height: 37px;
+	left: 0px;
+	top: 0px;
+}
+#Alvaro_Manrique_Lua_Cliente_Ha {
+	position: absolute;
+	left: 873px;
+	top: 1383px;
+	overflow: visible;
+	width: 253px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 22px;
+	color: rgba(46,141,113,1);
+}
+.ID9aefb1e0f33bc33eeadff6ab0533 {
+	position: absolute;
+	overflow: visible;
+	width: 179px;
+	height: 180px;
+	left: 910px;
+	top: 1187px;
+}
+#Entrega_a_cualquier_parte_del_ {
+	position: absolute;
+	left: 58px;
+	top: 2558px;
+	overflow: hidden;
+	width: 570px;
+	height: 37px;
+	line-height: 40px;
+	margin-top: -5px;
+	text-align: center;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 30px;
+	color: rgba(46,141,113,1);
+}
+.Trazado_28 {
+	overflow: visible;
+	position: absolute;
+	width: 494.39px;
+	height: 3px;
+	left: 94.946px;
+	top: 2611px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#_Con_la_plataforma_de_ACP_no_t {
+	position: absolute;
+	left: 52px;
+	top: 2627px;
+	overflow: visible;
+	width: 581px;
+	white-space: nowrap;
+	line-height: 37px;
+	margin-top: -3px;
+	text-align: center;
+	font-family: Cambria;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 31px;
+	color: rgba(37,19,17,1);
+}

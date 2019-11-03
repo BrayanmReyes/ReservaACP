@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Reservas</title>
+<script type="text/javascript"
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+
+	<div class="container">
+		<form id="myform">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<a style="border-bottom-color: green" th:href="@{/reserva/irRegistrar}"
+						id="add-row" type="button"
+						class="btn btn-primary btn-md left-block"> <span
+						class="glyphicon glyphicon-plus"></span> Reserva
+					</a>
+					<a style="border-bottom-color: green" th:href="@{/reserva/irBuscar}"
+						id="add-row" type="button"
+						class="btn btn-primary btn-md left-block"> <span
+						class="glyphicon glyphicon-search"></span> 
+					</a>
+					
+					<table class="table table-bordered table-hover table-striped"
+						id="tab_logic">
+						<thead>
+							<tr>
+								<th class="text-center">CODIGO</th>
+								<th class="text-center">USUARIO</th>
+								<th class="text-center">FECHA RESERVA</th>
+								<th class="text-center">CIUDAD</th>
+								<th class="text-center">FECHA LLEGADA</th>
+								<th class="text-center">ANULADO</th>
+								<th class="text-center">FECHA VENCIMIENTO</th>
+								<th class="text-center">OPERACIÓN</th>
+								<th class="text-center">OPERACIÓN</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="p: ${listaReservas}">
+								<td th:text="${p.idReserva}"></td>
+								<td th:text="${p.usuario.idDocumento}"></td>
+								<td th:text="${p.dayReserva}"></td>
+								<td th:text="${p.ciudad.nameCiudad}"></td>
+								<td th:text="${p.dayLlegada}"></td>
+								<td th:text="${p.flagAnulado}"></td>
+								<td th:text="${p.dayVencimiento}"></td>
+								<td><a th:href="@{/reserva/eliminar?id=}+${p.idReserva}">Eliminar
+								<button class="glyphicon glyphicon-trash" type="button" ></button>
+								</a></td>
+								<td><a th:href="@{'/reserva/modificar/' + ${p.idReserva}}" >Modificar
+								<button class="glyphicon glyphicon-pencil" type="button" ></button>
+								</a></td>
+							</tr>
+						</tbody>
+
+					</table>
+
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

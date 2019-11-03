@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Usuarios</title>
+<script type="text/javascript"
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+
+	<div class="container">
+		<form id="myform">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<a style="border-bottom-color: green" th:href="@{/usuario/irRegistrar}"
+						id="add-row" type="button"
+						class="btn btn-primary btn-md left-block"> <span
+						class="glyphicon glyphicon-plus"></span> Usuario
+					</a>
+					<a style="border-bottom-color: green" th:href="@{/usuario/irBuscar}"
+						id="add-row" type="button"
+						class="btn btn-primary btn-md left-block"> <span
+						class="glyphicon glyphicon-search"></span> 
+					</a>
+					
+					<table class="table table-bordered table-hover table-striped"
+						id="tab_logic">
+						<thead>
+							<tr>
+								<th class="text-center">CODIGO</th>
+								<th class="text-center">NOMBRE</th>
+								<th class="text-center">AP. PATERNO</th>
+								<th class="text-center">AP. MATERNO</th>
+								<th class="text-center">DOCUMENTO</th>
+								<th class="text-center">TELEFONO</th>
+								<th class="text-center">EMAIL</th>
+								<th class="text-center">PASSWORD</th>
+								<th class="text-center">ADMIN</th>
+								<th class="text-center">OPERACIÓN</th>
+								<th class="text-center">OPERACIÓN</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="p: ${listaUsuarios}">
+								<td th:text="${p.idUsuario}"></td>
+								<td th:text="${p.nameUsuario}"></td>
+								<td th:text="${p.nameApPaterno}"></td>
+								<td th:text="${p.nameApMaterno}"></td>
+								<td th:text="${p.idDocumento}"></td>
+								<td th:text="${p.phone}"></td>
+								<td th:text="${p.email}"></td>
+								<td th:text="${p.password}"></td>
+								<td th:text="${p.flagAdmin}"></td>
+								<td><a th:href="@{/usuario/eliminar?id=}+${p.idUsuario}">Eliminar</a></td>
+								<td><a th:href="@{'/usuario/modificar/' + ${p.idUsuario}}">Modificar</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>
