@@ -6,13 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/landing")
 public class LandingController {
-	@RequestMapping("/mostrar")
-	public String mostar() {
-		return "ACP";
-	}
-
-	@RequestMapping("/prueba")
-	public String listar() {
-		return "1prueba";
+	@RequestMapping("/bienvenido")
+	public String Bienvenido() {
+		return "bienvenido";
 	}
 }

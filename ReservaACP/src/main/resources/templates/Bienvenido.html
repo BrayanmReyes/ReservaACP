@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Bienvenido</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+<style type="text/css">
+#resp {
+display: block;
+margin: 0 auto;
+max-width: 100%;
+width: 80%;
+}
+
+	#plata {
+		overflow: visible;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 29px;
+		color: rgba(46,141,113,1);
+	}
+</style>
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+<div align="center">
+	<img  src="../images/logo.png"></img>
+	<p id="plata" align="center" >EXPRESS ACP</p>
+	<p id="plata" align="center">Plataforma web para los clientes de ACP</p>
+</div>
+<div align="center">
+	<img  id="resp" src="../images/fondo.png"></img>
+</div>
+<div align="center">
+	<p id="plata" align="center">Servicio a la velocidad de la luz</p>
+</div>
+<div align="center">
+	<img  src="../images/paltaespacio.png"></img>
+	<p id="plata" align="center">Con la plataforma de ACP no tienes <br/>que preocuparte por el tiempo de arribó <br/>de tu pedido</p>
+</div>
+<div align="center">
+	<br clear="all">
+	<img src="../images/persona.png"></img>
+	<span>Gerson Franco Padilla Ramos<br/>Cliente Habitual @iama </span>
+	<p id="plata" align="center">"Los productos de ACP son de buena calidad, y la plataforma me ayuda a poder reservar mis pedidos de una forma confiable y rápida. Lo recomiendo con los ojos cerrados"</p>
+	
+</div>
+<div align="center">
+	<br clear="all">
+	<img  src="../images/calvo.png"></img>
+	<span>Alvaro Manrique Lua<br/>Cliente Habitual @alpaca </span>
+	<p id="plata" align="center" >"Me impresiona demasiado la eficiencia con que la plataforma procesa mi pedido, y llega en el tiempo estimado. "</p>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
