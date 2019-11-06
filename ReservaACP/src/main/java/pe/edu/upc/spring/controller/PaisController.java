@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -109,7 +110,13 @@ public class PaisController {
 		
 	@RequestMapping("/listarId")
 	public String listarId(Map<String, Object> model, @ModelAttribute Pais pais) {
-		pService.listarId(pais.getIdPais());
+		model.put("listaPaises", pService.listarId(pais.getIdPais()));
+		return "listPaises";
+	}
+	
+	@GetMapping("/buscar/{namePais}")
+	public String buscarName(@PathVariable(value = "namePais") String namePais,Map<String, Object> model, @ModelAttribute Pais pais) {
+		model.put("listaPaises", pService.buscarPais(namePais));
 		return "listPaises";
 	}
 	

@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
+import pe.edu.upc.spring.model.Pais;
 import pe.edu.upc.spring.model.Producto;
 import pe.edu.upc.spring.service.IProductoService;
 
@@ -110,6 +112,12 @@ public class ProductoController {
 	@RequestMapping("/listarId")
 	public String listarId(Map<String, Object> model, @ModelAttribute Producto producto) {
 		pService.listarId(producto.getIdProducto());
+		return "listProductos";
+	}
+	
+	@GetMapping("/buscar/{nameProducto}")
+	public String buscarName(@PathVariable(value = "nameProducto") String nameProducto,Map<String, Object> model, @ModelAttribute Pais pais) {
+		model.put("listaproductos", pService.buscarProducto(nameProducto));
 		return "listProductos";
 	}
 	

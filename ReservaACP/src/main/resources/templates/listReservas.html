@@ -43,6 +43,7 @@
 								<th class="text-center">FECHA VENCIMIENTO</th>
 								<th class="text-center">OPERACIÓN</th>
 								<th class="text-center">OPERACIÓN</th>
+								<th class="text-center">PEDIDOS</th>
 
 							</tr>
 						</thead>
@@ -60,6 +61,9 @@
 								</a></td>
 								<td><a th:href="@{'/reserva/modificar/' + ${p.idReserva}}" >Modificar
 								<button class="glyphicon glyphicon-pencil" type="button" ></button>
+								</a></td>
+								<td><a th:href="@{/pedido/listar}" >Pedido
+								<button class="glyphicon glyphicon-plus" type="button" ></button>
 								</a></td>
 							</tr>
 						</tbody>

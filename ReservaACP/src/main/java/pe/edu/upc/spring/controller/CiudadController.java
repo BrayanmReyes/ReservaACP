@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
 import pe.edu.upc.spring.model.Ciudad;
+import pe.edu.upc.spring.model.Pais;
 import pe.edu.upc.spring.service.ICiudadService;
 import pe.edu.upc.spring.service.IPaisService;
 
@@ -122,4 +124,9 @@ public class CiudadController {
 		return "listCiudades";
 	}
 	
+	@GetMapping("/buscar/{nameCiudad}")
+	public String buscarName(@PathVariable(value = "nameCiudad") String nameCiudad,Map<String, Object> model, @ModelAttribute Pais pais) {
+		model.put("listaCiudades", pService.buscarCiudad(nameCiudad));
+		return "listCiudades";
+	}
 }

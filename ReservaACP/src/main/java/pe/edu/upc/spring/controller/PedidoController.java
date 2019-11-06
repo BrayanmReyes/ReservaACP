@@ -138,7 +138,8 @@ public class PedidoController {
 		
 	@RequestMapping("/listarId")
 	public String listarId(Map<String, Object> model, @ModelAttribute Pedido pedido) {
-		pService.listarId(pedido.getIdPedido());
+		//pService.listarId(pedido.getIdPedido());
+		pService.listarId(pedido.getReserva().getIdReserva());
 		return "listPedidos";
 	}
 	
