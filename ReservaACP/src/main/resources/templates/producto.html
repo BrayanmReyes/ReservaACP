@@ -33,7 +33,7 @@
 				</div>
 				<!-- Fecha Reabastecimiento -->
 				<div class="form-group">
-				<label for="fechaRegistro">Fecha Reabastecimiento:</label> 
+				<label for="fechaRegistro">Fecha de reabastecimiento:</label> 
 				<input type="date"	th:field="*{dayReabastecimiento}"
 				class="form-control" id="dayReabastecimiento"></input>
 				<div class="alert alert-danger" 
@@ -51,7 +51,7 @@
 				</div>
 				<!-- Precio -->
 				<div class="form-group">
-				<label for="quantityStock">Precio (Dolares):</label> 
+				<label for="quantityStock">Precio ($):</label> 
 				<input type="text"	th:field="*{moneyPrecio}"
 				class="form-control" id="moneyPrecio"></input>
 				<div class="alert alert-danger" 
@@ -60,7 +60,7 @@
 				</div>
 				<!-- Reservado -->
 				<div class="form-group">
-				<label for="quantityReserva">Catidad Reservada (Toneledas):</label> 
+				<label for="quantityReserva">Cantidad reservada (Toneladas):</label> 
 				<input type="text"	th:field="*{quantityReserva}"
 				class="form-control" id="quantityReserva"></input>
 				<div class="alert alert-danger" 
@@ -79,7 +79,7 @@
 				 -->
 			
 			</div>		
-			<button type ="submit" class="btn btn-primary">Aceptar</button>
+			<button type ="submit" class="btn btn-success">Aceptar</button>
 			<a href="/producto/listar" class="btn btn-danger">Cancelar</a>
 		</form>
 	</div>

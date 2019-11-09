@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name="Usuario")
@@ -18,6 +19,7 @@ public class Usuario implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idUsuario;
 	
+	@NotEmpty(message="No puede estar vacio")
 	@Column(name="nameUsuario", length=60, nullable=false)
 	private String nameUsuario;
 	
@@ -27,16 +29,19 @@ public class Usuario implements Serializable{
 	@Column(name="nameApMaterno", length=60, nullable=true)
 	private String nameApMaterno;
 	
+	@NotEmpty(message="No puede estar vacio")
 	@Column(name="idDocumento", length=12, nullable=false)
 	private String idDocumento;
 	
 	@Column(name="phone", length=20, nullable=false)
 	private String phone;
 	
+	@NotEmpty(message="No puede estar vacio")
 	@Email
 	@Column(name="email", length=60, nullable=false)
 	private String email;
 	
+	@NotEmpty(message="No puede estar vacio")
 	@Column(name="password", length=60, nullable=false)
 	private String password;
 	

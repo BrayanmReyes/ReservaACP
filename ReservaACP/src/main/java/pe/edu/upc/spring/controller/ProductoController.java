@@ -89,6 +89,8 @@ public class ProductoController {
 		}
 		else {
 			model.addAttribute("producto", objProducto);
+			if (objProducto.isPresent())
+				objProducto.ifPresent(o->model.addAttribute("producto",o));
 			return "producto";
 		}				
 	}	

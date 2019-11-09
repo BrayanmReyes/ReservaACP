@@ -13,6 +13,8 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Future;
 //import javax.validation.constraints.NotEmpty;
 //import javax.validation.constraints.Positive;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Positive;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -25,7 +27,7 @@ public class Producto implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idProducto;
 	
-	//@NotEmpty(message="No puedo estar vacio")
+	@NotEmpty(message="No puede estar vacio")
 	@Column(name="nameProducto", nullable=true)
 	private String nameProducto;
 	
@@ -35,11 +37,11 @@ public class Producto implements Serializable{
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date dayReabastecimiento;
 	
-	//@Positive
+	@Positive
 	@Column(name="quantityStock")
 	private double quantityStock;
 	
-	//@Positive
+	@Positive
 	@Column(name="moneyPrecio")
 	private double moneyPrecio;
 	

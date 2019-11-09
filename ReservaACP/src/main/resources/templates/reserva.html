@@ -22,7 +22,8 @@
 			<div class="form-group">
 				<label for="idReserva">ID:</label> 
 				<input type="text"	th:field="*{idReserva}"></input>
-              <!-- Usuario -->
+             	
+             	<!-- Usuario -->
 				<div class="form-group">
 				<label for="usuario">Usuario:</label> 
 				<input type="text"	th:field="*{usuario.idUsuario}"
@@ -31,15 +32,17 @@
 				th:if="${#fields.hasErrors('usuario')}"
 				th:errors="*{usuario}"></div>				
 				</div>
+				
 				<!-- Fecha Reserva -->
 				<div class="form-group">
-				<label for="dayReserva">Fecha Reserva:</label> 
+				<label for="dayReserva">Fecha de reserva:</label> 
 				<input type="date"	th:field="*{dayReserva}"
 				class="form-control" id="dayReserva"></input>
 				<div class="alert alert-danger" 
 				th:if="${#fields.hasErrors('dayReserva')}"
 				th:errors="*{dayReserva}"></div>		
 				</div>
+				
 				<!-- Ciudad -->
 				<div class="form-group">
 				<label for="ciudad" class="col-sm-2 col-form-label">Ciudad:</label> 
@@ -49,15 +52,17 @@
 						th:selected="(${c.idCiudad} == *{ciudad.idCiudad})"></option>
 					</select>
 				</div>
+				
 				<!-- Fecha Llegada -->
 				<div class="form-group">
-				<label for="dayLlegada">Fecha Llegada:</label> 
+				<label for="dayLlegada">Fecha de llegada:</label> 
 				<input type="date"	th:field="*{dayLlegada}"
 				class="form-control" id="dayLlegada"></input>
 				<div class="alert alert-danger" 
 				th:if="${#fields.hasErrors('dayLlegada')}"
 				th:errors="*{dayLlegada}"></div>		
 				</div>
+				
 				<!-- Flag Anulado-->
 				<div class="form-group">
 				<label for="flagAnulado">Anulado:</label> 
@@ -67,9 +72,10 @@
 				th:if="${#fields.hasErrors('flagAnulado')}"
 				th:errors="*{flagAnulado}"></div>				
 				</div>
+				
 				<!-- Fecha Vencimiento -->
 				<div class="form-group">
-				<label for="dayVencimiento">Fecha Vencimiento:</label> 
+				<label for="dayVencimiento">Fecha de vencimiento:</label> 
 				<input type="date"	th:field="*{dayVencimiento}"
 				class="form-control" id="dayVencimiento"></input>
 				<div class="alert alert-danger" 
@@ -88,7 +94,7 @@
 				 -->
 			
 			</div>		
-			<button type ="submit" class="btn btn-primary">Aceptar</button>
+			<button type ="submit" class="btn btn-success">Aceptar</button>
 			<a href="/reserva/listar" class="btn btn-danger">Cancelar</a>
 		</form>
 	</div>

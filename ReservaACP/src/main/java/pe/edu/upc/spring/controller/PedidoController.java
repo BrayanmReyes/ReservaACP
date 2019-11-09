@@ -116,6 +116,9 @@ public class PedidoController {
 		}
 		else {
 			model.addAttribute("pedido", objPedido);
+			model.addAttribute("listaProductos",cService.listar());
+			if (objPedido.isPresent())
+				objPedido.ifPresent(o->model.addAttribute("pedido",o));
 			return "pedido";
 		}				
 	}	

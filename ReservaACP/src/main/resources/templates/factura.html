@@ -33,7 +33,7 @@
 				</div>
 				<!-- Fecha Factura -->
 				<div class="form-group">
-				<label for="dayFactura">Fecha de facturación:</label> 
+				<label for="dayFactura">Fecha de facturacion:</label> 
 				<input type="date"	th:field="*{dayFactura}"
 				class="form-control" id="dayFactura"></input>
 				<div class="alert alert-danger" 
@@ -42,7 +42,7 @@
 				</div>
 				<!-- Precio Final -->
 				<div class="form-group">
-				<label for="moneyPrecioFinal">Precio Final a pagar:</label> 
+				<label for="moneyPrecioFinal">Precio final ($):</label> 
 				<input type="text"	th:field="*{moneyPrecioFinal}"
 				class="form-control" id="moneyPrecioFinal"></input>
 				<div class="alert alert-danger" 
@@ -79,8 +79,6 @@
 				th:errors="*{numFactura}"></div>				
 				</div>
 				
-			
-				
 				<!-- Cancelado -->
 				<div class="form-group">
 				<label for="flagCancelado">Cancelado:</label> 
@@ -92,7 +90,7 @@
 				</div>			
 			</div>
 					
-			<button type ="submit" class="btn btn-primary">Aceptar</button>
+			<button type ="submit" class="btn btn-success">Aceptar</button>
 			<a href="/factura/listar" class="btn btn-danger">Cancelar</a>
 		</form>
 	</div>
