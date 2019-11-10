@@ -16,6 +16,20 @@
 	<div th:replace="fragments/header :: header"></div>
 
 	<div class="container">
+				<form th:action="@{/usuario/buscar/}" method="get">
+					<div class="form-row align-items-center">
+						<div class="form-group col-md-3">
+							<input id="email" type="text" class="form-control"
+								name="email" placeholder="Buscar un Usuario">
+						</div>
+						<div class="col-auto">
+							<button type="submit" class="btn btn-success">
+								<span class="glyphicon glyphicon-search"></span>
+							</button>
+						</div>
+					</div>
+				</form>
+				
 		<form id="myform">
 			<div class="row clearfix">
 				<div class="col-md-12 column">

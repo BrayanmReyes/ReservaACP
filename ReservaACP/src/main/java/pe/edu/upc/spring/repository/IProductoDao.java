@@ -9,7 +9,7 @@ import pe.edu.upc.spring.model.Producto;
 
 @Repository
 public interface IProductoDao extends JpaRepository<Producto, Integer>{
-	@Query("from Producto c where c.nameProducto like %:nameProducto%")
-	List<Producto> buscarProducto(@Param("nameProducto")String nameProducto);
+	@Query("from Producto p where p.nameProducto like %:nameProducto%")
+	List<Producto> buscarProducto(@Param("nameProducto") String nameProducto);
 	
 }

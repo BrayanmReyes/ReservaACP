@@ -22,11 +22,11 @@
 			<div class="form-group">
 				<label for="idProducto">ID:</label> 
 				<input type="text"	th:field="*{idProducto}"></input>
-              <!-- Nombre -->
+              	<!-- Nombre -->
 				<div class="form-group">
 				<label for="nameProducto">Nombre:</label> 
 				<input type="text"	th:field="*{nameProducto}"
-				class="form-control" id="nameProducto"></input>
+				class="form-control" id="nameProducto" onchange="javascript:this.value=this.value.toUpperCase();"></input>
 				<div class="alert alert-danger" 
 				th:if="${#fields.hasErrors('nameProducto')}"
 				th:errors="*{nameProducto}"></div>				
@@ -76,8 +76,7 @@
 						th:selected="(${c.idCategoria} == *{categoria.idCategoria})"></option>
 					</select>
 				</div>
-				 -->
-			
+				 -->			
 			</div>		
 			<button type ="submit" class="btn btn-success">Aceptar</button>
 			<a href="/producto/listar" class="btn btn-danger">Cancelar</a>

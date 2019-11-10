@@ -17,7 +17,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
 import pe.edu.upc.spring.model.Ciudad;
-import pe.edu.upc.spring.model.Pais;
 import pe.edu.upc.spring.service.ICiudadService;
 import pe.edu.upc.spring.service.IPaisService;
 
@@ -124,8 +123,8 @@ public class CiudadController {
 		return "listCiudades";
 	}
 	
-	@GetMapping("/buscar/{nameCiudad}")
-	public String buscarName(@PathVariable(value = "nameCiudad") String nameCiudad,Map<String, Object> model, @ModelAttribute Pais pais) {
+	@GetMapping("/buscar")
+	public String buscarName(@RequestParam("nameCiudad") String nameCiudad,Map<String, Object> model) {
 		model.put("listaCiudades", pService.buscarCiudad(nameCiudad));
 		return "listCiudades";
 	}

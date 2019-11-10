@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-
-import pe.edu.upc.spring.model.Pais;
 import pe.edu.upc.spring.model.Producto;
 import pe.edu.upc.spring.service.IProductoService;
 
@@ -117,9 +115,9 @@ public class ProductoController {
 		return "listProductos";
 	}
 	
-	@GetMapping("/buscar/{nameProducto}")
-	public String buscarName(@PathVariable(value = "nameProducto") String nameProducto,Map<String, Object> model, @ModelAttribute Pais pais) {
-		model.put("listaproductos", pService.buscarProducto(nameProducto));
+	@GetMapping("/buscar")
+	public String buscarName(@RequestParam("nameProducto") String nameProducto,Map<String, Object> model) {
+		model.put("listaProductos", pService.buscarProducto(nameProducto));
 		return "listProductos";
 	}
 	

@@ -26,7 +26,7 @@
 				<div class="form-group">
 				<label for="nameCiudad">Nombre:</label> 
 				<input type="text"	th:field="*{nameCiudad}"
-				class="form-control" id="nameCiudad"></input>
+				class="form-control" id="nameCiudad" onchange="javascript:this.value=this.value.toUpperCase();"></input>
 				<div class="alert alert-danger" 
 				th:if="${#fields.hasErrors('nameCiudad')}"
 				th:errors="*{nameCiudad}"></div>				

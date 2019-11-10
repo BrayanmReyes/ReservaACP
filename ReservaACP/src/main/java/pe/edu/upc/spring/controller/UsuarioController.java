@@ -16,7 +16,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
-import pe.edu.upc.spring.model.Pais;
 import pe.edu.upc.spring.model.Usuario;
 import pe.edu.upc.spring.service.IUsuarioService;
 
@@ -115,9 +114,9 @@ public class UsuarioController {
 		return "listUsuarios";
 	}
 
-	@GetMapping("/buscar/{email}")
-	public String buscarName(@PathVariable(value = "email") String email,Map<String, Object> model, @ModelAttribute Pais pais) {
-		model.put("listaUsuarios", pService.buscarUsuario(email));
+	@GetMapping("/buscar")
+	public String buscarName(@RequestParam("email") String email,Map<String, Object> model) {
+		model.put("listaUsuarios", pService.buscarUsuario(email.toLowerCase()));
 		return "listUsuarios";
 	}
 }

@@ -16,6 +16,20 @@
 	<div th:replace="fragments/header :: header"></div>
 
 	<div class="container">
+	
+	<form th:action="@{/ciudad/buscar/}" method="get">
+					<div class="form-row align-items-center">
+						<div class="form-group col-md-3">
+							<input id="nameCiudad" type="text" class="form-control"
+								name="nameCiudad" placeholder="Buscar una Ciudad">
+						</div>
+						<div class="col-auto">
+							<button type="submit" class="btn btn-success">
+								<span class="glyphicon glyphicon-search"></span>
+							</button>
+						</div>
+					</div>
+				</form>
 		<form id="myform">
 			<div class="row clearfix">
 				<div class="col-md-12 column">
@@ -23,11 +37,6 @@
 						id="add-row" type="button"
 						class="btn btn-success btn-md left-block"> <span
 						class="glyphicon glyphicon-plus"></span> Ciudad
-					</a>
-					<a style="border-bottom-color: green" th:href="@{/ciudad/irBuscar}"
-						id="add-row" type="button"
-						class="btn btn-success btn-md left-block"> <span
-						class="glyphicon glyphicon-search"></span> 
 					</a>
 					
 					<table class="table table-bordered table-hover table-striped"

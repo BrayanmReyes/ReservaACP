@@ -17,23 +17,29 @@
 	<div th:replace="fragments/header :: header"></div>
 
 	<div class="container">
-
-					
+				<form th:action="@{/pais/buscar/}" method="get">
+					<div class="form-row align-items-center">
+						<div class="form-group col-md-3">
+							<input id="namePais" type="text" class="form-control"
+								name="namePais" placeholder="Buscar un pais">
+						</div>
+						<div class="col-auto">
+							<button type="submit" class="btn btn-success">
+								<span class="glyphicon glyphicon-search"></span>
+							</button>
+						</div>
+					</div>
+				</form>
+						
 		<form id="myform">
 			<div class="row clearfix">
 				<div class="col-md-12 column">
 					<a style="border-bottom-color: green" th:href="@{/pais/irRegistrar}"
 						id="add-row" type="button"
 						class="btn btn-success btn-md left-block"> <span
-						class="glyphicon glyphicon-plus"></span> Pais
-					</a>
+						class="glyphicon glyphicon-plus"></span> Pais</a>
 			
-				<input th:text="${namePais}" th:href="${namePais}" type="search" id="namePais">			       
-					<a style="border-bottom-color: green" th:href="@{/pais/buscar/'namePais'}" id="add-row" type="button"
-						class="btn btn-success btn-md left-block"> 
-						<span class="glyphicon glyphicon-search"></span> 
-					</a>
-					
+			
 					
 					<table class="table table-bordered table-hover table-striped"
 						id="tab_logic">

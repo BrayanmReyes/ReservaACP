@@ -114,8 +114,8 @@ public class PaisController {
 		return "listPaises";
 	}
 	
-	@GetMapping("/buscar/{namePais}")
-	public String buscarName(@PathVariable(value = "namePais") String namePais,Map<String, Object> model, @ModelAttribute Pais pais) {
+	@GetMapping("/buscar")
+	public String buscarName(@RequestParam("namePais") String namePais,Map<String, Object> model) {
 		model.put("listaPaises", pService.buscarPais(namePais));
 		return "listPaises";
 	}
