@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8"></meta>
-<title>Facturas</title>
+<title>Pedidos</title>
 <script type="text/javascript"
 	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js"></script>
 <link
@@ -19,12 +19,12 @@
 		<form id="myform">
 			<div class="row clearfix">
 				<div class="col-md-12 column">
-					<a style="border-bottom-color: green" th:href="@{/factura/irRegistrar}"
+					<a style="border-bottom-color: green" th:href="@{/pedido/irRegistrar}"
 						id="add-row" type="button"
 						class="btn btn-success btn-md left-block"> <span
-						class="glyphicon glyphicon-plus"></span> Factura
+						class="glyphicon glyphicon-plus"></span> Pedido
 					</a>
-					<a style="border-bottom-color: green" th:href="@{/factura/irBuscar}"
+					<a style="border-bottom-color: green" th:href="@{/pedido/irBuscar}"
 						id="add-row" type="button"
 						class="btn btn-success btn-md left-block"> <span
 						class="glyphicon glyphicon-search"></span> 
@@ -36,29 +36,21 @@
 							<tr>
 								<th class="text-center">CODIGO</th>
 								<th class="text-center">RESERVA</th>
-								<th class="text-center">PRECIO FINAL</th>
-								<th class="text-center">PAGO CON TARJETA</th>
-								<th class="text-center">NUMERO DE SERIE</th>
-								<th class="text-center">NUMERO DE FACTURA</th>
-								<th class="text-center">CANCELADO</th>
-								<th class="text-center">FECHA DE EMISION</th>
+								<th class="text-center">PRODUCTO</th>
+								<th class="text-center">CANTIDAD PEDIDA (TONELADAS)</th>
 								<th class="text-center">OPERACIÓN</th>
 								<th class="text-center">OPERACIÓN</th>
 
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="p: ${listaFacturas}">
-								<td th:text="${p.idFactura}"></td>
+							<tr th:each="p: ${listaPedidos}">
+								<td th:text="${p.idPedido}"></td>
 								<td th:text="${p.reserva.idReserva}"></td>
-								<td th:text="${p.moneyPrecioFinal}"></td>
-								<td th:text="${p.flagPagoTarjeta}"></td>
-								<td th:text="${p.numSerie}"></td>
-								<td th:text="${p.numFactura}"></td>
-								<td th:text="${p.flagCancelado}"></td>
-								<td th:text="${p.dayFactura}"></td>
-								<td><a th:href="@{/factura/eliminar?id=}+${p.idFactura}">Eliminar</a></td>
-								<td><a th:href="@{'/factura/modificar/' + ${p.idFactura}}">Modificar</a></td>
+								<td th:text="${p.producto.nameProducto}"></td>
+								<td th:text="${p.quantityPeso}"></td>
+								<td><a th:href="@{/pedido/eliminar?id=}+${p.idPedido}">Eliminar</a></td>
+								<td><a th:href="@{'/pedido/modificar/' + ${p.idPedido}}">Modificar</a></td>
 							</tr>
 						</tbody>
 					</table>

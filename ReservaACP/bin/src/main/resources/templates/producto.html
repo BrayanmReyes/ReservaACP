@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Producto</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" th:src="@{/js/producto.js}"></script>
+
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
+		<form th:action="@{/producto/registrar}" method="post"
+			th:object="${producto}">
+				
+			<div class="form-group">
+				<label for="idProducto">ID:</label> 
+				<input type="text"	th:field="*{idProducto}"></input>
+              	<!-- Nombre -->
+				<div class="form-group">
+				<label for="nameProducto">Nombre:</label> 
+				<input type="text"	th:field="*{nameProducto}"
+				class="form-control" id="nameProducto" onchange="javascript:this.value=this.value.toUpperCase();"></input>
+				<div class="alert alert-danger" 
+				th:if="${#fields.hasErrors('nameProducto')}"
+				th:errors="*{nameProducto}"></div>				
+				</div>
+				<!-- Fecha Reabastecimiento -->
+				<div class="form-group">
+				<label for="fechaRegistro">Fecha de reabastecimiento:</label> 
+				<input type="date"	th:field="*{dayReabastecimiento}"
+				class="form-control" id="dayReabastecimiento"></input>
+				<div class="alert alert-danger" 
+				th:if="${#fields.hasErrors('dayReabastecimiento')}"
+				th:errors="*{dayReabastecimiento}"></div>		
+				</div>
+				<!-- Stock -->
+				<div class="form-group">
+				<label for="quantityStock">Stock (Toneledas):</label> 
+				<input type="text"	th:field="*{quantityStock}"
+				class="form-control" id="quantityStock"></input>
+				<div class="alert alert-danger" 
+				th:if="${#fields.hasErrors('quantityStock')}"
+				th:errors="*{quantityStock}"></div>				
+				</div>
+				<!-- Precio -->
+				<div class="form-group">
+				<label for="quantityStock">Precio ($):</label> 
+				<input type="text"	th:field="*{moneyPrecio}"
+				class="form-control" id="moneyPrecio"></input>
+				<div class="alert alert-danger" 
+				th:if="${#fields.hasErrors('moneyPrecio')}"
+				th:errors="*{moneyPrecio}"></div>				
+				</div>
+				<!-- Reservado -->
+				<div class="form-group">
+				<label for="quantityReserva">Cantidad reservada (Toneladas):</label> 
+				<input type="text"	th:field="*{quantityReserva}"
+				class="form-control" id="quantityReserva"></input>
+				<div class="alert alert-danger" 
+				th:if="${#fields.hasErrors('quantityReserva')}"
+				th:errors="*{quantityReserva}"></div>				
+				</div>
+				<!-- Combo 
+				<div class="form-group">
+				<label for="categoria" class="col-sm-2 col-form-label">Categoria:</label> 
+					<select class="form-control" th:field="*{categoria.idCategoria}">
+						<option th:each="c: ${listaCategorias}" th:value="${c.idCategoria}" 
+						th:text="${c.nombreCategoria}" 
+						th:selected="(${c.idCategoria} == *{categoria.idCategoria})"></option>
+					</select>
+				</div>
+				 -->			
+			</div>		
+			<button type ="submit" class="btn btn-success">Aceptar</button>
+			<a href="/producto/listar" class="btn btn-danger">Cancelar</a>
+		</form>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
