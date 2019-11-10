@@ -31,10 +31,9 @@
 				th:if="${#fields.hasErrors('nameCiudad')}"
 				th:errors="*{nameCiudad}"></div>				
 				</div>
-				
 				<!-- Combo Pais-->
 				<div class="form-group">
-				<label for="pais" class="col-sm-2 col-form-label">Pais:</label> 
+				<label for="pais">Pais:</label> 
 					<select class="form-control" th:field="*{pais.idPais}">
 						<option th:each="c: ${listaPaises}" th:value="${c.idPais}" 
 						th:text="${c.namePais}" 

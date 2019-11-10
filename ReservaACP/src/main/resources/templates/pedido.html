@@ -33,7 +33,7 @@
 				</div>
 				<!-- Producto -->
 				<div class="form-group">
-				<label for="producto" class="col-sm-2 col-form-label">Producto:</label> 
+				<label for="producto">Producto:</label> 
 					<select class="form-control" th:field="*{producto.idProducto}">
 						<option th:each="c: ${listaProductos}" th:value="${c.idProducto}" 
 						th:text="${c.nameProducto}" 

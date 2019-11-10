@@ -66,17 +66,7 @@
 				<div class="alert alert-danger" 
 				th:if="${#fields.hasErrors('quantityReserva')}"
 				th:errors="*{quantityReserva}"></div>				
-				</div>
-				<!-- Combo 
-				<div class="form-group">
-				<label for="categoria" class="col-sm-2 col-form-label">Categoria:</label> 
-					<select class="form-control" th:field="*{categoria.idCategoria}">
-						<option th:each="c: ${listaCategorias}" th:value="${c.idCategoria}" 
-						th:text="${c.nombreCategoria}" 
-						th:selected="(${c.idCategoria} == *{categoria.idCategoria})"></option>
-					</select>
-				</div>
-				 -->			
+				</div>		
 			</div>		
 			<button type ="submit" class="btn btn-success">Aceptar</button>
 			<a href="/producto/listar" class="btn btn-danger">Cancelar</a>
