@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1"></meta>
+<meta charset="utf-8"></meta>
 <title>Reserva</title>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <link
@@ -25,14 +25,13 @@
              	
              	<!-- Usuario -->				
 				<div class="form-group">
-				<label for="ciudad">Usuario:</label> 
+				<label for="usuario">Usuario:</label> 
 					<select class="form-control" th:field="*{usuario.idUsuario}">
 						<option th:each="c: ${listaUsuarios}" th:value="${c.idUsuario}" 
 						th:text="${c.nameUsuario}" 
 						th:selected="(${c.idUsuario} == *{usuario.idUsuario})"></option>
 					</select>
-				</div>				
-				
+				</div>						
 				
 				<!-- Fecha Reserva -->
 				<div class="form-group">

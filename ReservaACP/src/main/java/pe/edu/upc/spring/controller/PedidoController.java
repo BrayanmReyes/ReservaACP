@@ -6,8 +6,10 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -17,6 +19,7 @@ import org.springframework.validation.BindingResult;
 
 import pe.edu.upc.spring.model.Pedido;
 import pe.edu.upc.spring.model.Producto;
+import pe.edu.upc.spring.model.Reserva;
 import pe.edu.upc.spring.service.IPedidoService;
 import pe.edu.upc.spring.service.IProductoService;
 
@@ -146,4 +149,15 @@ public class PedidoController {
 		return "listPedidos";
 	}
 	
+	@GetMapping("/buscarid")
+	public String buscarName(@RequestParam("idReserva") int idReserva,Map<String, Object> model) {
+		model.put("listaPedidos", pService.buscarPedidoxIdreserva(idReserva));
+		return "listPedidos";
+	}
+	
+	@PostMapping("/buscarobj")
+	public String buscarObjeto(@RequestParam("reserva") Reserva reserva,Map<String, Object> model) {
+		model.put("listaPedidos", pService.buscarPedido(reserva));
+		return "listPedidos";
+	}
 }

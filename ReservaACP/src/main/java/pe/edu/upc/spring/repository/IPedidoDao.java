@@ -19,4 +19,7 @@ public interface IPedidoDao extends JpaRepository<Pedido, Integer>{
 	int updateReserva(@Param("quantityReserva") double quantityReserva, 
 	  @Param("idProducto") int idProducto);
 	
+	@Query("from Pedido c where c.reserva.idReserva = :idReserva")
+	List<Pedido> buscarPedidoxIdreserva(@Param("idReserva")int idReserva);
+	
 }

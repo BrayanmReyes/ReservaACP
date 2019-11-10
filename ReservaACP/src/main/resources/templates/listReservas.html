@@ -16,18 +16,26 @@
 	<div th:replace="fragments/header :: header"></div>
 
 	<div class="container">
-		<form id="myform">
+			<form th:action="@{/pedido/buscarid/}" method="get">
+					<div class="form-row align-items-center">
+						<div class="form-group col-md-3">
+							<input id="idReserva" type="text" class="form-control"
+								name="idReserva" placeholder="Agregar Pedido a Reserva">
+						</div>
+						<div class="col-auto">
+							<button type="submit" class="btn btn-success">
+								<span class="glyphicon glyphicon-search"></span>
+							</button>
+						</div>
+					</div>
+				</form>
+		
 			<div class="row clearfix">
 				<div class="col-md-12 column">
 					<a style="border-bottom-color: green" th:href="@{/reserva/irRegistrar}"
 						id="add-row" type="button"
 						class="btn btn-success btn-md left-block"> <span
 						class="glyphicon glyphicon-plus"></span> Reserva
-					</a>
-					<a style="border-bottom-color: green" th:href="@{/reserva/irBuscar}"
-						id="add-row" type="button"
-						class="btn btn-success btn-md left-block"> <span
-						class="glyphicon glyphicon-search"></span> 
 					</a>
 					
 					<table class="table table-bordered table-hover table-striped"
@@ -43,7 +51,7 @@
 								<th class="text-center">FECHA DE VENCIMIENTO</th>
 								<th class="text-center">OPERACIÓN</th>
 								<th class="text-center">OPERACIÓN</th>
-								<th class="text-center">PEDIDOS</th>
+								<th class="text-center">VER PEDIDOS</th>
 
 							</tr>
 						</thead>
@@ -56,26 +64,35 @@
 								<td th:text="${p.dayLlegada}"></td>
 								<td th:text="${p.flagAnulado}"></td>
 								<td th:text="${p.dayVencimiento}"></td>
-								<td><a th:href="@{/reserva/eliminar?id=}+${p.idReserva}">Eliminar
+								<td><div style="text-align: center;">
+								<a th:href="@{/reserva/eliminar?id=}+${p.idReserva}">Eliminar
 								<button class="glyphicon glyphicon-trash" type="button" ></button>
-								</a></td>
-								<td><a th:href="@{'/reserva/modificar/' + ${p.idReserva}}" >Modificar
+								</a></div></td>
+								<td><div style="text-align: center;">
+								<a th:href="@{'/reserva/modificar/' + ${p.idReserva}}">Modificar
 								<button class="glyphicon glyphicon-pencil" type="button" ></button>
-								</a></td>
-								<td><a th:href="@{/pedido/listar}" >Pedido
-								<button class="glyphicon glyphicon-plus" type="button" ></button>
-								</a></td>
+								</a></div></td>
+								
+								<td>
+									<form th:action="@{/pedido/buscarid/}" method="get">
+										<input id="idReserva" type="hidden" class="form-control"
+										name="idReserva" th:value="${p.idReserva}" >
+										<div style="text-align: center;">
+										<button class="btn btn-link"  type="submit">										
+											<i class="glyphicon glyphicon-eye-open"></i>
+										</button>
+										</div>
+									</form>
+								</td>
 							</tr>
 						</tbody>
 
 					</table>
-
 				</div>
 			</div>
-		</form>
 	</div>
-
+<form>
 	<div th:replace="fragments/footer :: footer"></div>
-
+</form>
 </body>
 </html>

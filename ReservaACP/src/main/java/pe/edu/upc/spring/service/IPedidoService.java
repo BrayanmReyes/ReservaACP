@@ -13,4 +13,5 @@ public interface IPedidoService {
 	List<Pedido> listar();
 	List<Pedido> buscarPedido(Reserva reserva);
 	int updateReserva (double quantityReserva,int idProducto);
+	List<Pedido> buscarPedidoxIdreserva(int idReserva);
 }

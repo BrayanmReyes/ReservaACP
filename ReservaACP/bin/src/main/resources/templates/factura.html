@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Factura</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" th:src="@{/js/factura.js}"></script>
+
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
+		<form th:action="@{/factura/registrar}" method="post"
+			th:object="${factura}">
+				
+			<div class="form-group">
+				<label for="idFactura">ID:</label> 
+				<input type="text"	th:field="*{idFactura}"></input>
+              <!-- Reserva -->
+				<div class="form-group">
+				<label for="reserva">Reserva:</label> 
+				<input type="text"	th:field="*{reserva.idReserva}"
+				class="form-control" id="reserva"></input>
+				<div class="alert alert-danger" 
+				th:if="${#fields.hasErrors('reserva')}"
+				th:errors="*{reserva}"></div>				
+				</div>
+				<!-- Fecha Factura -->
+				<div class="form-group">
+				<label for="dayFactura">Fecha de facturacion:</label> 
+				<input type="date"	th:field="*{dayFactura}"
+				class="form-control" id="dayFactura"></input>
+				<div class="alert alert-danger" 
+				th:if="${#fields.hasErrors('dayFactura')}"
+				th:errors="*{dayFactura}"></div>		
+				</div>
+				<!-- Precio Final -->
+				<div class="form-group">
+				<label for="moneyPrecioFinal">Precio final ($):</label> 
+				<input type="text"	th:field="*{moneyPrecioFinal}"
+				class="form-control" id="moneyPrecioFinal"></input>
+				<div class="alert alert-danger" 
+				th:if="${#fields.hasErrors('moneyPrecioFinal')}"
+				th:errors="*{moneyPrecioFinal}"></div>				
+				</div>
+				<!-- flagPagoTarjeta -->
+				<div class="form-group">
+				<label for="flagPagoTarjeta">Pago con tarjeta:</label> 
+				<input type="text"	th:field="*{flagPagoTarjeta}"
+				class="form-control" id="flagPagoTarjeta"></input>
+				<div class="alert alert-danger" 
+				th:if="${#fields.hasErrors('flagPagoTarjeta')}"
+				th:errors="*{flagPagoTarjeta}"></div>				
+				</div>
+				
+				<!-- Num Serie -->
+				<div class="form-group">
+				<label for="numSerie">Numero de serie:</label> 
+				<input type="text"	th:field="*{numSerie}"
+				class="form-control" id="numSerie"></input>
+				<div class="alert alert-danger" 
+				th:if="${#fields.hasErrors('numSerie')}"
+				th:errors="*{numSerie}"></div>				
+				</div>
+				
+				<!-- Num Factura -->
+				<div class="form-group">
+				<label for="numFactura">Numero de factura:</label> 
+				<input type="text"	th:field="*{numFactura}"
+				class="form-control" id="numFactura"></input>
+				<div class="alert alert-danger" 
+				th:if="${#fields.hasErrors('numFactura')}"
+				th:errors="*{numFactura}"></div>				
+				</div>
+				
+				<!-- Cancelado -->
+				<div class="form-group">
+				<label for="flagCancelado">Cancelado:</label> 
+				<input type="text"	th:field="*{flagCancelado}"
+				class="form-control" id="flagCancelado"></input>
+				<div class="alert alert-danger" 
+				th:if="${#fields.hasErrors('flagCancelado')}"
+				th:errors="*{flagCancelado}"></div>				
+				</div>			
+			</div>
+					
+			<button type ="submit" class="btn btn-success">Aceptar</button>
+			<a href="/factura/listar" class="btn btn-danger">Cancelar</a>
+		</form>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

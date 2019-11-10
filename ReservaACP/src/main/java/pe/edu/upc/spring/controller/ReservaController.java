@@ -18,19 +18,26 @@ import org.springframework.validation.BindingResult;
 import pe.edu.upc.spring.model.Reserva;
 import pe.edu.upc.spring.service.ICiudadService;
 import pe.edu.upc.spring.service.IReservaService;
+import pe.edu.upc.spring.service.IUsuarioService;
 
 @Controller
 @RequestMapping("/reserva")
 public class ReservaController {
 	@Autowired
 	private IReservaService pService;
+	
 	@Autowired
 	private ICiudadService cService;
+	
+	@Autowired
+	private IUsuarioService uService;
 	
 	@RequestMapping("/listar")
 	public String listar(Map<String, Object> model) {
 		model.put("listaReservas", pService.listar());
 		model.put("listaCiudades", cService.listar());
+		model.put("listaUsuarios",uService.listar());
+		
 		return "listReservas";
 	}
 	
@@ -38,6 +45,8 @@ public class ReservaController {
 	public String irRegistrar(Model model) {
 		model.addAttribute("reserva", new Reserva());
 		model.addAttribute("listaCiudades", cService.listar());
+		model.addAttribute("listaUsuarios", uService.listar());
+		
 		return "reserva";
 	}
 	
@@ -46,6 +55,7 @@ public class ReservaController {
 			BindingResult binRes, Model model) throws ParseException {
 		 if (binRes.hasErrors()) {
 			 model.addAttribute("listaCiudades", cService.listar());
+			 model.addAttribute("listaUsuarios", uService.listar());
 			 return "reserva";
 		 }
 		 else {
@@ -94,6 +104,7 @@ public class ReservaController {
 		else {
 			model.addAttribute("reserva", objReserva);
 			model.addAttribute("listaCiudades", cService.listar());
+			model.addAttribute("listaUsuarios", uService.listar());
 			if (objReserva.isPresent())
 				objReserva.ifPresent(o -> model.addAttribute("reserva", o));	
 			return "reserva";

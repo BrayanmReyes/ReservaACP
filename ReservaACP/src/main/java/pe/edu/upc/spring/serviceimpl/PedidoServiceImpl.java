@@ -72,4 +72,10 @@ public class PedidoServiceImpl  implements IPedidoService{
 	public int updateReserva (double quantityReserva,int idProducto) {
 		return dPedido.updateReserva(quantityReserva, idProducto);
 	}
+	
+	@Override
+	public List<Pedido> buscarPedidoxIdreserva(int idReserva) {
+		return dPedido.buscarPedidoxIdreserva(idReserva);
+	}
+	
 }
