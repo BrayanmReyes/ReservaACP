@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import pe.edu.upc.spring.model.Pedido;
@@ -12,7 +13,8 @@ import pe.edu.upc.spring.repository.IPedidoDao;
 import pe.edu.upc.spring.service.IPedidoService;
 
 @Service
-public class PedidoServiceImpl  implements IPedidoService{
+public class PedidoServiceImpl  implements IPedidoService {
+	
 	@Autowired
 	private IPedidoDao dPedido;
 
@@ -69,12 +71,22 @@ public class PedidoServiceImpl  implements IPedidoService{
 	}
 	
 	@Override
-	public int updateReserva (double quantityReserva,int idProducto) {
-		return dPedido.updateReserva(quantityReserva, idProducto);
+	@Transactional(readOnly = false, propagation =  Propagation.NESTED, rollbackFor=Exception.class)
+	public boolean updateReserva (double quantityReserva,int idProducto) {
+		boolean flag = false;
+		try {
+			dPedido.updateReserva(quantityReserva, idProducto);
+			flag = true;
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+		}
+		//return dPedido.updateReserva(quantityReserva, idProducto);
+		return flag;
 	}
 	
 	@Override
-	public List<Pedido> buscarPedidoxIdreserva(int idReserva) {
+	public List<Pedido> buscarPedidoxIdreserva(int idReserva) {		
 		return dPedido.buscarPedidoxIdreserva(idReserva);
 	}
 	

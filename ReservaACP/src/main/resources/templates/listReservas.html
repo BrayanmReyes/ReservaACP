@@ -52,6 +52,7 @@
 								<th class="text-center">OPERACIÓN</th>
 								<th class="text-center">OPERACIÓN</th>
 								<th class="text-center">VER PEDIDOS</th>
+								<th class="text-center">AÑADIR PEDIDOS</th>
 
 							</tr>
 						</thead>
@@ -72,7 +73,6 @@
 								<a th:href="@{'/reserva/modificar/' + ${p.idReserva}}">Modificar
 								<button class="glyphicon glyphicon-pencil" type="button" ></button>
 								</a></div></td>
-								
 								<td>
 									<form th:action="@{/pedido/buscarid/}" method="get">
 										<input id="idReserva" type="hidden" class="form-control"
@@ -83,6 +83,21 @@
 										</button>
 										</div>
 									</form>
+								</td>
+								<td>
+								<a th:href="@{'/pedido/form/' + ${p.idReserva}}"
+									class="btn btn-primary"> Añadir </a>
+									<!--  
+									<form th:action="@{/pedido/usuarioIrRegistrar}" method="get">
+										<input id="idReserva" type="hidden" class="form-control"
+										name="idReserva" th:value="${p.idReserva}" >
+										<div style="text-align: center;">
+										<button class="btn btn-link"  type="submit">										
+											<i class="glyphicon glyphicon-plus"></i>
+										</button>
+										</div>
+									</form>
+									-->
 								</td>
 							</tr>
 						</tbody>

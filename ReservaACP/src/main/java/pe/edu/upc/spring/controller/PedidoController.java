@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
+
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
@@ -22,6 +24,7 @@ import pe.edu.upc.spring.model.Producto;
 import pe.edu.upc.spring.model.Reserva;
 import pe.edu.upc.spring.service.IPedidoService;
 import pe.edu.upc.spring.service.IProductoService;
+import pe.edu.upc.spring.service.IReservaService;
 
 
 
@@ -32,7 +35,8 @@ public class PedidoController {
 	private IPedidoService pService;
 	@Autowired
 	private IProductoService cService;
-	
+	@Autowired
+	private IReservaService rService;
 	
 	private double aux;
 	
@@ -49,6 +53,38 @@ public class PedidoController {
 		model.addAttribute("listaProductos", cService.listar());
 		return "pedido";
 	}
+	
+	@GetMapping("/usuarioIrRegistrar")
+	public String usuarioIrRegistrar(@RequestParam("idReserva") int idReserva,Model model,@ModelAttribute @Valid Pedido objPedido) {
+
+		model.addAttribute("pedidoUsuario", new Pedido());
+		model.addAttribute("pedidoUsuario", objPedido);
+		//int c = objPedido.getReserva().getIdReserva();
+		model.addAttribute("idReserva", objPedido.getReserva().getIdReserva());
+		model.addAttribute("listaProductos", cService.listar());
+		return "pedidoUsuario";
+	}
+	
+	@GetMapping("/form/{idReserva}")
+	public String newInvoice(@PathVariable(value = "idReserva") int idReserva, Model model) {
+		try {
+			Optional<Reserva> reserva = rService.buscarId(idReserva);
+			if (!reserva.isPresent()) {
+				model.addAttribute("info", "Reserva no existe");
+				return "redirect:/invoices/list";
+			} else {
+				Pedido pedido = new Pedido();
+				pedido.setReserva(reserva.get());
+				model.addAttribute("pedidoUsuario", pedido);
+				model.addAttribute("listaProductos", cService.listar());
+				//model.addAttribute("title", "Factura");
+			}
+		} catch (Exception e) {
+			model.addAttribute("error", e.getMessage());
+		}
+		return "pedidoUsuario";
+	}
+
 	
 	@RequestMapping("/registrar")
 	public String registrar(@ModelAttribute @Valid Pedido objPedido,  
@@ -79,6 +115,41 @@ public class PedidoController {
 			 {
 				 model.addAttribute("mensaje","ocurrio un roche");
 				 return "redirect:/pedido/irRegistrar";
+			 }
+			 
+		 }
+	}
+	@RequestMapping("/registrarxUsuario")
+	public String registrarUsuario(@ModelAttribute @Valid Pedido objPedido,  
+			BindingResult binRes, Model model) throws ParseException {
+		 if (binRes.hasErrors()) {
+			 model.addAttribute("listaProductos", cService.listar());		 
+			 return "pedidoUsuario";
+		 }
+		 else {
+			 boolean flag = pService.insertar(objPedido);
+			 
+			 Optional<Producto> objProducto = cService.listarId(objPedido.getProducto().getIdProducto());
+			 objPedido.setProducto(objProducto.get());
+			 aux=objPedido.getProducto().getQuantityReserva()+objPedido.getQuantityPeso();
+			 objProducto.get().setQuantityReserva(aux);
+			 
+			 if (objProducto.isPresent()) {
+					objProducto.ifPresent(o -> model.addAttribute("producto", o));
+					//pService.updateReserva(aux, objPedido.getIdPedido());
+					return "producto";
+					//return "redirect:/producto/listar";
+			 }
+			 
+			 if (flag) {	
+				 pService.updateReserva(aux, objPedido.getIdPedido());
+				 return "redirect:/pedido/listar";
+			 }
+			 
+			 else
+			 {
+				 model.addAttribute("mensaje","ocurrio un roche");
+				 return "redirect:/pedido/form/{idReserva}";
 			 }
 			 
 		 }

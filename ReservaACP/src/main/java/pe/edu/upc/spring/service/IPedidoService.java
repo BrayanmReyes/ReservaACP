@@ -12,6 +12,6 @@ public interface IPedidoService {
 	public Optional<Pedido> listarId(int idPedido);
 	List<Pedido> listar();
 	List<Pedido> buscarPedido(Reserva reserva);
-	int updateReserva (double quantityReserva,int idProducto);
+	public boolean updateReserva (double quantityReserva,int idProducto);
 	List<Pedido> buscarPedidoxIdreserva(int idReserva);
 }
