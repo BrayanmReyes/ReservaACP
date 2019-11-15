@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1"></meta>
-<title> Producto </title>
+<title>Producto</title>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
@@ -22,6 +22,7 @@
 			<div class="form-group">
 				<label for="idProducto">ID:</label> 
 				<input type="text"	th:field="*{idProducto}"></input>
+              
               	<!-- Nombre -->
 				<div class="form-group">
 				<label for="nameProducto">Nombre:</label> 
@@ -31,6 +32,7 @@
 				th:if="${#fields.hasErrors('nameProducto')}"
 				th:errors="*{nameProducto}"></div>				
 				</div>
+				
 				<!-- Fecha Reabastecimiento -->
 				<div class="form-group">
 				<label for="fechaRegistro">Fecha de reabastecimiento:</label> 
