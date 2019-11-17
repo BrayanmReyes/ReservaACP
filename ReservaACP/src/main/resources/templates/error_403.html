@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<title>Error</title>
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8"></meta>
+<script type="text/javascript"
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+	<div th:replace="layout/layout :: header"></div>
+
+	<div class="container py-4">
+
+		<div class="card bg-danger text-white">
+			<div class="card-header">Error:Access denied!</div>
+			<div class="card-body">
+				<h5 class="card-title">
+					Sorry <span th:text="${#authentication.name}"></span>, NOT have
+					permissions to access this resource.
+				</h5>
+				
+
+			</div>
+		</div>
+	</div>
+
+	
+</body>
+</html>

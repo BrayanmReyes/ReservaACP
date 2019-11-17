@@ -35,6 +35,13 @@ public class CiudadController {
 		return "listCiudades";
 	}
 	
+	@RequestMapping("/ulistar")
+	public String listarUsuario(Map<String, Object> model) {
+		model.put("listaCiudades", pService.listar());
+		model.put("listaPaises",cService.listar());
+		return "ulistCiudades";
+	}
+	
 	@RequestMapping("/irRegistrar")
 	public String irRegistrar(Model model) {
 		model.addAttribute("ciudad", new Ciudad());
@@ -127,5 +134,11 @@ public class CiudadController {
 	public String buscarName(@RequestParam("nameCiudad") String nameCiudad,Map<String, Object> model) {
 		model.put("listaCiudades", pService.buscarCiudad(nameCiudad));
 		return "listCiudades";
+	}
+	
+	@GetMapping("/ubuscar")
+	public String ubuscarName(@RequestParam("nameCiudad") String nameCiudad,Map<String, Object> model) {
+		model.put("listaCiudades", pService.buscarCiudad(nameCiudad));
+		return "ulistCiudades";
 	}
 }

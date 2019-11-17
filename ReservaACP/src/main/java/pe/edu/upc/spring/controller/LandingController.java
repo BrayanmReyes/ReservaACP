@@ -10,4 +10,12 @@ public class LandingController {
 	public String Bienvenido() {
 		return "bienvenido";
 	}
+	
+	@RequestMapping("/prueba")
+	public String Prueba() {
+		return "header2";
+	}
+	
+	
+	
 }

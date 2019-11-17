@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<title>Paises</title>
+<title>Productos</title>
 <head th:replace="layout/layout :: head">
 <meta charset="UTF-8"></meta>
 <script type="text/javascript"
@@ -11,17 +11,15 @@
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
 </head>
 <body>
 	<div th:replace="layout/layout :: header"></div>
-
 	<div class="container">
-				<form th:action="@{/pais/buscar/}" method="get">
+				<form th:action="@{/producto/ubuscar/}" method="get">
 					<div class="form-row align-items-center">
 						<div class="form-group col-md-3">
-							<input id="namePais" type="text" class="form-control"
-								name="namePais" placeholder="Buscar un pais">
+							<input id="nameProducto" type="text" class="form-control"
+								name="nameProducto" placeholder="Buscar un Producto">
 						</div>
 						<div class="col-auto">
 							<button type="submit" class="btn btn-success">
@@ -30,37 +28,36 @@
 						</div>
 					</div>
 				</form>
-						
 		<form id="myform">
 			<div class="row clearfix">
 				<div class="col-md-12 column">
-					<a style="border-bottom-color: green" th:href="@{/pais/irRegistrar}"
-						id="add-row" type="button"
-						class="btn btn-success btn-md left-block"> <span
-						class="glyphicon glyphicon-plus"></span> Pais</a>
-			
-			
-					
+				
 					<table class="table table-bordered table-hover table-striped"
 						id="tab_logic">
 						<thead>
 							<tr>
 								<th class="text-center">CODIGO</th>
 								<th class="text-center">NOMBRE</th>
-								<th class="text-center">OPERACIÓN</th>
-								<th class="text-center">OPERACIÓN</th>
+								<th class="text-center">FECHA DE REABASTECIMIENTO</th>
+								<th class="text-center">STOCK (TONELADAS)</th>
+								<th class="text-center">PRECIO (DOLARES)</th>
+								<th class="text-center">CANTIDAD RESERVADA (TONELADAS)</th>
 
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="p: ${listaPaises}">
-								<td th:text="${p.idPais}"></td>
-								<td th:text="${p.namePais}"></td>
-								<td><a th:href="@{/pais/eliminar?id=}+${p.idPais}">Eliminar</a></td>
-								<td><a th:href="@{'/pais/modificar/' + ${p.idPais}}">Modificar</a></td>
+							<tr th:each="p: ${listaProductos}">
+								<td th:text="${p.idProducto}"></td>
+								<td th:text="${p.nameProducto}"></td>
+								<td th:text="${p.dayReabastecimiento}"></td>
+								<td th:text="${p.quantityStock}"></td>
+								<td th:text="${p.moneyPrecio}"></td>
+								<td th:text="${p.quantityReserva}"></td>
 							</tr>
 						</tbody>
+
 					</table>
+
 				</div>
 			</div>
 		</form>

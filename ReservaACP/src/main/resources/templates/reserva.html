@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="utf-8"></meta>
 <title>Reserva</title>
+<head th:replace="layout/layout :: head">
+<meta charset="utf-8"></meta>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
@@ -14,7 +14,7 @@
 
 </head>
 <body>
-	<div th:replace="fragments/header :: header"></div>
+	<div th:replace="layout/layout :: header"></div>
 	<div class="container">
 		<form th:action="@{/reserva/registrar}" method="post"
 			th:object="${reserva}">
@@ -88,6 +88,6 @@
 			<a href="/reserva/listar" class="btn btn-danger">Cancelar</a>
 		</form>
 	</div>
-	<div th:replace="fragments/footer :: footer"></div>
+	<div th:replace="layout/layout :: footer"></div>
 </body>
 </html>

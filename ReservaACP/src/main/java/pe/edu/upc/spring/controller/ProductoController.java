@@ -30,6 +30,12 @@ public class ProductoController {
 		return "listProductos";
 	}
 	
+	@RequestMapping("/ulistar")
+	public String listarUsuario(Map<String, Object> model) {
+		model.put("listaProductos", pService.listar());
+		return "ulistProductos";
+	}
+	
 	@RequestMapping("/irRegistrar")
 	public String irRegistrar(Model model) {
 		model.addAttribute("producto", new Producto());
@@ -121,4 +127,9 @@ public class ProductoController {
 		return "listProductos";
 	}
 	
+	@GetMapping("/ubuscar")
+	public String ubuscarName(@RequestParam("nameProducto") String nameProducto,Map<String, Object> model) {
+		model.put("listaProductos", pService.buscarProducto(nameProducto));
+		return "ulistProductos";
+	}
 }

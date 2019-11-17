@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<title>Pais</title>
+<head th:replace="layout/layout :: head">
+<meta charset="ISO-8859-1"></meta>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" th:src="@{/js/pais.js}"></script>
+
+</head>
+<body>
+	<div th:replace="layout/layout :: header"></div>
+	<div class="container">
+		<form th:action="@{/cuenta/registrar}" method="post"
+			th:object="${user}">
+				
+			<div class="form-group">
+				<label for="idCuenta">ID:</label> 
+				<input type="text"	th:field="*{id}"></input>
+			</div>
+              <!-- Nombre -->
+				<div class="form-group">
+				<label for="username">User Name:</label> 
+				<input type="text"	th:field="*{username}"
+				class="form-control" id="username"></input>
+				<div class="alert alert-danger" 
+				th:if="${#fields.hasErrors('username')}"
+				th:errors="*{username}"></div>				
+				</div>
+				<!-- Password -->
+				<div class="form-group">
+				<label for="password">Password encriptado:</label> 
+				<input type="text"	th:field="*{password}"></input>
+			</div>		
+			<button type ="submit" class="btn btn-success">Aceptar</button>
+			<a href="/login" class="btn btn-danger">Cancelar</a>
+		</form>
+	</div>
+	<div th:replace="layout/layout :: footer"></div>
+</body>
+</html>

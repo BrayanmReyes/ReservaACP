@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="ISO-8859-1"></meta>
 <title>Usuario</title>
+<head th:replace="layout/layout :: head">
+<meta charset="ISO-8859-1"></meta>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
@@ -14,7 +14,7 @@
 
 </head>
 <body>
-	<div th:replace="fragments/header :: header"></div>
+	<div th:replace="layout/layout :: header"></div>
 	<div class="container">
 		<form th:action="@{/usuario/registrar}" method="post"
 			th:object="${usuario}">
@@ -100,6 +100,6 @@
 			<a href="/usuario/listar" class="btn btn-danger">Cancelar</a>
 		</form>
 	</div>
-	<div th:replace="fragments/footer :: footer"></div>
+	<div th:replace="layout/layout :: footer"></div>
 </body>
 </html>

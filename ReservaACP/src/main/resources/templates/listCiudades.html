@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<title>Ciudades</title>
+<head th:replace="layout/layout :: head">
 <meta charset="UTF-8"></meta>
-<title>Ciudads</title>
 <script type="text/javascript"
 	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js"></script>
 <link
@@ -13,7 +13,7 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
-	<div th:replace="fragments/header :: header"></div>
+	<div th:replace="layout/layout :: header"></div>
 
 	<div class="container">
 	
@@ -68,7 +68,7 @@
 		</form>
 	</div>
 
-	<div th:replace="fragments/footer :: footer"></div>
+	<div th:replace="layout/layout :: footer"></div>
 
 </body>
 </html>

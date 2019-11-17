@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	 xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<title>ACP</title>	 
+<head th:fragment="head">
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=500, initial-scale=1">
+<meta name="title" content="ACP-EXPRESS" />
+<meta name="description" content="ACP" />
+<meta name="author" content="TEAM ACP">
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}" />
+<script type="text/javascript"
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<header th:fragment="header">
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		  <div class="container-fluid">
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarTogglerDemo01"
+				aria-controls="navbarTogglerDemo01" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+				<div class="navbar-header">
+					<a class="navbar-brand" style="color: #ffffff" th:href="@{/landing/bienvenido}"> Inicio </a>
+				</div>
+				
+				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+						<li class="nav-item dropdown" ><a sec:authorize="hasRole('ROLE_ADMIN')" 
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> Mantenimiento </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#" th:href="@{/pais/listar}">Paises</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#"th:href="@{/ciudad/listar}">Ciudades</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#"th:href="@{/producto/listar}">Productos</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#" th:href="@{/usuario/listar}">Usuarios</a>
+						</div>
+						</li>
+						<li class="nav-item active"><a class="nav-link" th:href="@{/ciudad/ulistar}">Ciudades Disponibles</a></li>
+						<li class="nav-item active"><a class="nav-link" th:href="@{/producto/ulistar}">Productos ACP</a></li>
+						<li class="nav-item active"><a class="nav-link" th:href="@{/reserva/listar}">Reservas</a></li>
+						<li class="nav-item active"><a class="nav-link" th:href="@{/pedido/listar}">Pedidos</a></li>
+						<li class="nav-item active"><a class="nav-link" th:href="@{/factura/listar}">Facturas</a></li>
+				</ul>
+
+				<ul class="navbar-nav navbar-right">
+					<li class="btn-group dropleft"><a
+						class="btn btn-secondary dropdown-toggle dropdown-toggle-split" href="#"
+						role="button" id="dropdownMenuLink" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false"> <span
+							sec:authentication="name"></span>
+					</a>
+						<div class="dropdown-menu">
+							<form id="logoutForm" th:action="@{/logout}" method="post">
+							<button class="dropdown-item" type="submit">Logout </button>
+							</form>
+						</div></li>
+				</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="alert alert-success" th:if="${success != null}"
+			th:text="${success}"></div>
+		<div class="alert alert-danger" th:if="${error != null}"
+			th:text="${error}"></div>
+		<div class="alert alert-info" th:if="${info != null}"
+			th:text="${info}"></div>
+	</header>
+
+	<div class="container"></div>
+
+
+<footer>
+				<!-- this is footer -->
+		<div align="center">
+			<img  src="/images/logo.png"></img>
+			©Express ACP - Trabajo Final : Programación en web 2019-02
+		</div>	
+		<script th:src="@{/js/jquery.min.js}"></script>
+		<script th:src="@{/js/popper.min.js}"></script>
+		<script th:src="@{/js/bootstrap.min.js}"></script>
+		<script th:src="@{/js/jquery-ui.min.js}"></script>
+</footer>
+
+</body>
+</html>

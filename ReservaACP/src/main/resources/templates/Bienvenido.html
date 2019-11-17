@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="utf-8"/>
 <title>Bienvenido</title>
+<head th:replace="layout/layout :: head">
+<meta charset="utf-8"/>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css"></link>
+	rel="stylesheet" id="bootstrap-css"></link>	
+</head>
 <style type="text/css">
 #resp {
 display: block;
@@ -15,18 +16,18 @@ max-width: 100%;
 width: 100%;
 }
 
-	#plata {
+#plata {
 		overflow: visible;
 		font-family: Roboto;
 		font-style: normal;
 		font-weight: normal;
 		font-size: 29px;
 		color: rgba(46,141,113,1);
-	}
+}
 </style>
-</head>
 <body>
-	<div th:replace="fragments/header :: header"></div>
+	<!--  <div th:replace="fragments/header :: header"></div>-->
+	<header th:replace="layout/layout :: header"></header>
 <div align="center">
 
 	<img  id="resp" src="../images/fondo.png"></img>
@@ -48,6 +49,6 @@ width: 100%;
 	<img  id="resp" src="../images/fondo4.png"></img>
 </div>
 
-<div th:replace="fragments/footer :: footer"></div>
+<footer th:replace="layout/layout :: footer"></footer>
 </body>
 </html>

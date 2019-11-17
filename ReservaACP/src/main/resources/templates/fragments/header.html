@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE>
+<html xmlns:th="http://www.thymeleaf.org"
+	 xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8"></meta>
 <link
@@ -7,6 +8,9 @@
 	rel="stylesheet" id="bootstrap-css"></link>
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}" />
 </head>
 <body>
 	<div th:fragment="header">
@@ -28,9 +32,11 @@
 						<li class="active"><a th:href="@{/pedido/listar}">Pedidos</a></li>
 						<li class="active"><a th:href="@{/factura/listar}">Facturas</a></li>
 					</ul>
+					
 				</div>
 			</div>
 		</nav>
+			
 	</div>
 
 </body>
