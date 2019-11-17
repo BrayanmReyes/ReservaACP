@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<title>Pago Exitoso</title>
+<head th:replace="layout/layout :: head">
+</head>
+<style>
+.botonimagen{
+  background-image:url(/images/btnHome.png);
+  background-repeat:no-repeat;
+  height:100px;
+  width: 100px;
+  background-position:center;
+}
+</style>
+<body>
+ <!--;-->
+<div align="center">
+	<img  src="/images/pago-exitoso.png"></img>
+</div>
+		
+<div align="center">
+	<form method="post" th:action="@{/landing/bienvenido}">
+		<input class="botonimagen" type="submit" value="" >
+		<!--  <button class="botonimagen" type="submit" height="200%"></button>-->
+		
+	</form>
+</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

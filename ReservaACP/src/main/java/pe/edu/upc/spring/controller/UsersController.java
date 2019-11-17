@@ -58,7 +58,7 @@ public class UsersController {
 	@RequestMapping("/irRegistrar")
 	public String irRegistrar(Model model) {
 		model.addAttribute("user", new Users());
-		return "user";
+		return "crearcuenta";
 	}
 	
 	@RequestMapping("/registrar")

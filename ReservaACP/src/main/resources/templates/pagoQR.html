@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<title>Pago QR</title>
+<head th:replace="layout/layout :: head">
+<meta charset="utf-8">
+</head>
+<style>
+.botonimagen{
+  background-image:url(/images/btnHome.png);
+  background-repeat:no-repeat;
+  height:100px;
+  width: 100px;
+  background-position:center;
+}
+
+#resp {
+display: block;
+margin: 0 auto;
+max-width: 100%;
+width: 100%;
+}
+
+#plata {
+		overflow: visible;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 29px;
+		color: rgba(46,141,113,1);
+}
+</style>
+<body>
+ <!---->
+ <div align="center">
+ <p id="plata">Usa tu celular y escanea el siguiente código:</p>
+ </div>
+<div align="center">
+	<img  src="/images/codigoQR.png"></img>
+</div>
+		
+<div align="center">
+	<form method="post" th:action="@{/landing/bienvenido}">
+		<input class="botonimagen" type="submit" value="" >
+		<!--  <button class="botonimagen" type="submit" height="200%"></button>-->
+		
+	</form>
+</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

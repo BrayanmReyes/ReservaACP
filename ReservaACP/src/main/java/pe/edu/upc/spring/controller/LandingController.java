@@ -11,11 +11,4 @@ public class LandingController {
 		return "bienvenido";
 	}
 	
-	@RequestMapping("/prueba")
-	public String Prueba() {
-		return "header2";
-	}
-	
-	
-	
 }
