@@ -10,9 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/pago")
 public class PagoController {
-	@RequestMapping("/ir")
-	public String irRegistrar() {
-		//model.addAttribute("pais", new Pais());
+	@RequestMapping("/elegir")
+	public String irEleccion() {
+		return "elegir";
+	}
+	
+	@RequestMapping("/pagotrj")
+	public String irPago() {
 		return "pago";
 	}
 	@RequestMapping("/exitoso")

@@ -1,11 +1,13 @@
 package pe.edu.upc.spring.controller;
 import java.text.ParseException;
+
 import java.util.Map;
 import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -71,7 +73,7 @@ public class PedidoController {
 			Optional<Reserva> reserva = rService.buscarId(idReserva);
 			if (!reserva.isPresent()) {
 				model.addAttribute("info", "Reserva no existe");
-				return "redirect:/invoices/list";
+				return "redirect:/reserva/listar";
 			} else {
 				Pedido pedido = new Pedido();
 				pedido.setReserva(reserva.get());
@@ -128,27 +130,36 @@ public class PedidoController {
 		 }
 		 else {
 			 boolean flag = pService.insertar(objPedido);
-			 
+			 //Buscar Producto byID
 			 Optional<Producto> objProducto = cService.listarId(objPedido.getProducto().getIdProducto());
 			 objPedido.setProducto(objProducto.get());
 			 aux=objPedido.getProducto().getQuantityReserva()+objPedido.getQuantityPeso();
-			 objProducto.get().setQuantityReserva(aux);
 			 
-			 if (objProducto.isPresent()) {
+			 
+			/* if (objProducto.isPresent()) {
 					objProducto.ifPresent(o -> model.addAttribute("producto", o));
 					//pService.updateReserva(aux, objPedido.getIdPedido());
-					return "producto";
+					//return "producto";
 					//return "redirect:/producto/listar";
-			 }
-			 
-			 if (flag) {	
-				 pService.updateReserva(aux, objPedido.getIdPedido());
+			 }*/
+			 Producto p =new Producto();
+			 p.setIdProducto(objPedido.getProducto().getIdProducto());
+			 p.setDayReabastecimiento(objPedido.getProducto().getDayReabastecimiento());
+			 p.setMoneyPrecio(objPedido.getProducto().getMoneyPrecio());
+			 p.setNameProducto(objPedido.getProducto().getNameProducto());
+			 p.setQuantityStock(objPedido.getProducto().getQuantityStock());
+			 p.setQuantityReserva(aux);
+			 cService.modificar(p);
+			 if (flag) {
+				 //cService.modificar(objPedido.getProducto());
+				 //pService.updateReserva(aux, objPedido.getIdPedido());
+				
 				 return "redirect:/pedido/listar";
 			 }
 			 
 			 else
 			 {
-				 model.addAttribute("mensaje","ocurrio un roche");
+				model.addAttribute("mensaje","ocurrio un roche");
 				 return "redirect:/pedido/form/{idReserva}";
 			 }
 			 

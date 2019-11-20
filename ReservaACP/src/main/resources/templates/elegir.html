@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<title>Pago Exitoso</title>
+<head th:replace="layout/layout :: head">
+<meta charset="UTF-8">
+</head>
+<style>
+.pagoTarjeta{
+  background-image:url(/images/pagoTarjeta.png);
+  background-repeat:no-repeat;
+  height:250px;
+  width: 250px;
+  background-position:center;
+}
+.pagoQR{
+  background-image:url(/images/pagoQR.png);
+  background-repeat:no-repeat;
+  height:250px;
+  width: 250px;
+  background-position:center;
+}
+
+#plata {
+		overflow: visible;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 29px;
+		color: rgba(46,141,113,1);
+}
+</style>
+<body>
+ <!--;-->		
+<div align="center">
+<div>
+<img  src="/images/acppago.png" width="100px" height="100px"></img>
+<br/>
+</div>
+<div align="center">
+<p id="plata">Paga con tarjeta</p>
+	<form method="post" th:action="@{/pago/pagotrj}">
+		<input class="pagoTarjeta" type="submit" value="" >		
+	</form>
+</div>
+
+<br/>
+<div align="center">
+	<p id="plata">Paga usando un código QR</p>
+	<form method="post" th:action="@{/pago/pagoqr}">
+		<input class="pagoQR" type="submit" value="" >		
+	</form>
+</div>
+
+		
+</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<title>CREAR CUENTA</title>
+<meta charset="UTF-8"></meta>
+<head th:replace="layout/layout :: head">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" th:src="@{/js/usuario.js}"></script>
+
+</head>
+<body>
+	<div th:replace="layout/layout :: header"></div>
+	<div class="container">
+		<form th:action="@{/cuenta/registrar}" method="post"
+			th:object="${users}">
+				
+			<div class="form-group">
+				<label for="idUsuario">ID:</label> 
+				<input type="hidden"	th:field="*{id}" ></input>
+				
+				<!-- enabled -->
+				
+             	 <!-- Username -->
+				<div class="form-group">
+				<label for="username">username:</label> 
+				<input type="text"	th:field="*{username}"
+				class="form-control" id="username"></input>
+				<div class="alert alert-danger" 
+				th:if="${#fields.hasErrors('username')}"
+				th:errors="*{username}"></div>				
+				</div>
+				
+				<!-- password -->
+				<div class="form-group">
+				<label for="password">Contraseña:</label> 
+				<input type="text"	th:field="*{password}"
+				class="form-control" id="password"></input>
+				<div class="alert alert-danger" 
+				th:if="${#fields.hasErrors('password')}"
+				th:errors="*{password}"></div>				
+				</div>
+
+				 <!-- Autorities -->
+				<div class="form-group">
+				<label for="roles">Autoridad:</label> 
+				<Select th:field="*{roles}"
+				class="form-control" id="roles">
+				<option value="ROLE_USER">ROLE_USER</option>
+				<option value="ROLE_ADMIN">ROLE_ADMIN</option>
+				</Select>
+				<div class="alert alert-danger" 
+				th:if="${#fields.hasErrors('roles')}"
+				th:errors="*{roles}"></div>				
+				</div>
+
+			
+			</div>		
+			<button type ="submit" class="btn btn-success">Aceptar</button>
+			<a href="/landing/bienvenido" class="btn btn-danger">Cancelar</a>
+		</form>
+	</div>
+	<div th:replace="layout/layout :: footer"></div>
+</body>
+</html>

@@ -1,7 +1,10 @@
 package pe.edu.upc.spring.controller;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 //import java.util.Map;
 //import java.util.Optional;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -11,6 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 //import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +22,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
+import pe.edu.upc.spring.model.Pedido;
+import pe.edu.upc.spring.model.Reserva;
+import pe.edu.upc.spring.model.Role;
 import pe.edu.upc.spring.model.Users;
 import pe.edu.upc.spring.service.IUsersService;
 
@@ -34,6 +41,12 @@ public class UsersController {
 		return new BCryptPasswordEncoder();
 	}
 
+	@RequestMapping("/creaciondecuenta")
+	public String Crearcuenta(Model model) {
+		model.addAttribute("users", new Users());
+		return "creacioncuenta";
+	}
+	
 	@RequestMapping("/irPassword")
 	public String irPassword(Model model) {
 		model.addAttribute("user", new Users());
@@ -46,7 +59,6 @@ public class UsersController {
 			//String password = "admin";
 			String bcryptPassword = passwordCodifica.encode(password);
 			System.out.println(bcryptPassword);
-			
 			
 			model.addAttribute("user", new Users());
 			model.addAttribute("user", objUser);
@@ -65,9 +77,13 @@ public class UsersController {
 	public String registrar(@ModelAttribute @Valid Users objUsuario, 
 			BindingResult binRes, Model model) throws ParseException {
 		 if (binRes.hasErrors()) {
-			 return "user";
+			 return "creacioncuenta";
 		 }
 		 else {
+			 String encry= passwordCodifica.encode(objUsuario.getPassword());
+			 objUsuario.setPassword(encry);
+			 boolean enabled =true;
+			 objUsuario.setEnabled(enabled);
 			 boolean flag = pService.insertar(objUsuario);
 			 if (flag)
 				 return "redirect:/login";
@@ -78,4 +94,7 @@ public class UsersController {
 			 }
 		 }
 	}
+
+	
+	
 }

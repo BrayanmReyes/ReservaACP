@@ -14,4 +14,6 @@ public interface IProductoDao extends JpaRepository<Producto, Integer>{
 	@Query("from Producto p where p.nameProducto like %:nameProducto%")
 	List<Producto> buscarProducto(@Param("nameProducto") String nameProducto);
 	
+	
+	
 }

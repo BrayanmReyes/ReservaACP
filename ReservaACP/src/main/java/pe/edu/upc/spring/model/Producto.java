@@ -16,9 +16,11 @@ import javax.validation.constraints.Future;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Positive;
 
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
+@DynamicUpdate
 @Table(name="Producto")
 public class Producto implements Serializable{
 	private static final long serialVersionUID = 1L;
